@@ -1,0 +1,43 @@
+<hr><br><br>
+
+{% if produtos %}
+{% if produtos.has_previous %}
+<a href="?page=1">&laquo Primeiro</a>
+<a href="?page={{ produtos.previous_page_number }}">Anterior</a>
+{% endif %}
+
+Página {{ produtos.number }} de {{ produtos.paginator.num_pages }}
+
+{% if produtos.has_next %}
+<a href="?page={{ produtos.next_page_number }}">Próximo</a>
+<a href="?page={{ produtos.paginator.num_pages }}">Último &raquo</a>
+{% endif %}
+{% endif %}
+
+{% if clientes %}
+{% if clientes.has_previous %}
+<a href="?page=1">&laquo Primeiro</a>
+<a href="?page={{ clientes.previous_page_number }}">Anterior</a>
+
+{% endif %}
+Página {{ clientes.number }} de {{ clientes.paginator.num_pages }}
+
+{% if clientes.has_next %}
+<a href="?page={{ clientes.next_page_number }}">Próximo</a>
+<a href="?page={{ clientes.paginator.num_pages }}">Último &raquo</a>
+{% endif %}
+{% endif %}
+
+{% if contratos %}
+{% if contratos.has_previous %}
+<a href="?page=1">&laquo Primeiro</a>
+<a href="?page={{ contratos.previous_page_number }}">Anterior</a>
+
+{% endif %}
+Página {{ contratos.number }} de {{ contratos.paginator.num_pages }}
+
+{% if contratos.has_next %}
+<a href="?page={{ contratos.next_page_number }}">Próximo</a>
+<a href="?page={{ contratos.paginator.num_pages }}">Último &raquo</a>
+{% endif %}
+{% endif %}

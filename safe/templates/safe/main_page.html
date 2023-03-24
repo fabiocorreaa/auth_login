@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block conteudo %}
+<br>
+<button type="submit"><a href="/passwords/create">Add new password</a></button>
+<br>
+<br>
+
+<div class="row">
+    <div class="col">
+        <h3 class="mb-4">Your passwords</h3>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">URL</th>
+                    <th>:)</th>
+                    <th>X</th>
+
+                </tr>
+                {% for secret_word in list %}
+
+                <tr>
+                    <th scope="row">{{ secret_word.name}}</td>
+                    <td>{{ secret_word.url }}</td>
+                    <td><button class="btn btn-outline-success btn-sm">Copy</button></td>
+                    <td>
+                        <a href="{% url 'safe:delete-password' secret_word.id %}"
+                            class="btn btn-outline-danger btn-sm">
+                            Excluir <i class="fas fa-search-plus ml-2"></i>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
